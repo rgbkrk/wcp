@@ -51,3 +51,15 @@ cargo build --release
 2. Utilizing parallel processing to handle large chunks of data simultaneously
 3. Employing SIMD operations for efficient character counting
 4. Optimizing the build with Link Time Optimization (LTO) and single codegen unit
+
+## Compatibility with `wc`
+
+While `wcp` aims to be a high-performance alternative to `wc`, there are some differences in functionality:
+
+1. No stdin support: Currently, `wcp` does not support reading from standard input. It only works with file inputs.
+
+2. Limited options: `wcp` implements the core functionality of `wc` (-l, -w, -c options), but may not support all the extended options that some `wc` implementations provide.
+
+3. Multibyte character handling: The current implementation may not correctly handle multibyte characters or different encodings. It's optimized for ASCII and UTF-8 encoded files.
+
+4. Default behavior: Unlike `wc`, which prints line, word, and byte counts by default if no option is specified, `wcp` requires explicit options.
